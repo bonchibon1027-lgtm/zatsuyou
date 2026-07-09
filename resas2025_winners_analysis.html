@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>受賞スライド解剖 — 地方創生☆政策アイデアコンテスト2025</title>
+<style>
+  :root {
+    --bg: #f1ede2;
+    --surface: #ffffff;
+    --surface-2: #faf7ee;
+    --border: #e1dac6;
+    --ink: #211f1c;
+    --muted: #746e5e;
+    --indigo: #1c3a5e;
+    --indigo-strong: #24507f;
+    --indigo-tint: #e7edf3;
+    --moss: #4f5c39;
+    --moss-tint: #eaefe0;
+    --gold: #96690f;
+    --gold-tint: #f5ead2;
+    --slate: #4a5c70;
+    --slate-tint: #e8edf1;
+    --shadow: 0 1px 2px rgba(33,31,28,0.06), 0 8px 24px -16px rgba(33,31,28,0.25);
+    --font-body: "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+    --font-display: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Consolas", monospace;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14171c;
+    --surface: #1b1f26;
+    --surface-2: #20242c;
+    --border: #2d323b;
+    --ink: #eae7dc;
+    --muted: #a3a091;
+    --indigo: #86ade0;
+    --indigo-strong: #a9c7ef;
+    --indigo-tint: #202b3a;
+    --moss: #a4bd88;
+    --moss-tint: #212a1c;
+    --gold: #dcae57;
+    --gold-tint: #2e2717;
+    --slate: #9db0c4;
+    --slate-tint: #1e252d;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -16px rgba(0,0,0,0.5);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171c;
+      --surface: #1b1f26;
+      --surface-2: #20242c;
+      --border: #2d323b;
+      --ink: #eae7dc;
+      --muted: #a3a091;
+      --indigo: #86ade0;
+      --indigo-strong: #a9c7ef;
+      --indigo-tint: #202b3a;
+      --moss: #a4bd88;
+      --moss-tint: #212a1c;
+      --gold: #dcae57;
+      --gold-tint: #2e2717;
+      --slate: #9db0c4;
+      --slate-tint: #1e252d;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -16px rgba(0,0,0,0.5);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px 100px; }
+
+  header.top {
+    background: linear-gradient(160deg, var(--indigo) 0%, #142c47 100%);
+    color: #f3efe2;
+    padding: 56px 20px 44px;
+    text-align: center;
+    border-bottom: 6px solid var(--gold);
+  }
+  header.top .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 14px;
+  }
+  header.top h1 {
+    margin: 0 0 12px;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    text-wrap: balance;
+    letter-spacing: 0.02em;
+  }
+  header.top p { margin: 4px 0; opacity: 0.88; font-size: 0.95rem; }
+  header.top p.sub { max-width: 640px; margin: 14px auto 0; line-height: 1.9; }
+
+  nav.jumpbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 20px;
+  }
+  nav.jumpbar a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    margin-right: 20px;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+  }
+  nav.jumpbar a:hover, nav.jumpbar a:focus-visible { color: var(--indigo); border-bottom-color: var(--gold); }
+
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-left: 5px solid var(--gold);
+    padding-left: 14px;
+    margin: 64px 0 8px;
+    text-wrap: balance;
+  }
+  p.section-lede { color: var(--muted); font-size: 0.94rem; margin: 0 0 24px; max-width: 68ch; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .stat-box .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--indigo-strong);
+    line-height: 1.1;
+  }
+  .stat-box .label { color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
+
+  /* Narrative arc */
+  .arc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 28px 0;
+  }
+  .arc-step {
+    flex: 1 1 140px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--indigo);
+    border-radius: 8px;
+    padding: 14px 14px 16px;
+  }
+  .arc-step .arc-no { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); }
+  .arc-step .arc-title { font-weight: 700; font-size: 0.92rem; margin: 4px 0 6px; }
+  .arc-step .arc-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .arc-arrow { display: flex; align-items: center; color: var(--border); font-size: 1.2rem; }
+  @media (max-width: 720px) { .arc-arrow { display: none; } }
+
+  /* Matrix table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow); }
+  table.matrix { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 760px; }
+  table.matrix th, table.matrix td { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: center; }
+  table.matrix th { background: var(--surface-2); font-weight: 600; }
+  table.matrix td.elem-name { text-align: left; font-weight: 600; min-width: 260px; position: sticky; left: 0; background: var(--surface); }
+  table.matrix th.elem-name-h { text-align: left; position: sticky; left: 0; background: var(--surface-2); z-index: 2; }
+  table.matrix .yes { color: var(--moss); font-weight: 700; }
+  table.matrix .no { color: var(--border); }
+  table.matrix td.rate { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  table.matrix .rate-bar { display: inline-block; height: 8px; background: var(--indigo); border-radius: 4px; vertical-align: middle; margin-right: 6px; }
+
+  /* RESAS usage */
+  .resas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 24px 0; }
+  .resas-card { background: var(--indigo-tint); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .resas-card h4 { margin: 0 0 6px; font-size: 0.95rem; color: var(--indigo-strong); }
+  .resas-card .count { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 1.5rem; font-weight: 700; color: var(--indigo-strong); }
+  .resas-card .works { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--indigo);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 22px 0;
+    font-size: 0.95rem;
+  }
+  .callout.quote { font-family: var(--font-display); font-size: 1.08rem; line-height: 1.85; border-left-color: var(--gold); }
+
+  /* Insight cards */
+  .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 24px 0; }
+  .insight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: var(--shadow); }
+  .insight-card .insight-rate { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.78rem; color: var(--gold); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .insight-card h4 { margin: 0 0 8px; font-size: 1.05rem; }
+  .insight-card p { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+  .insight-card .ex { margin-top: 10px; font-size: 0.8rem; }
+  .insight-card .ex .chip { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; margin: 2px 4px 0 0; font-family: var(--font-mono); }
+
+  /* Comparison */
+  .compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0; }
+  @media (max-width: 640px) { .compare-wrap { grid-template-columns: 1fr; } }
+  .compare-col { border-radius: 12px; padding: 22px; border: 1px solid var(--border); }
+  .compare-col.hs { background: var(--moss-tint); }
+  .compare-col.gen { background: var(--slate-tint); }
+  .compare-col h4 { margin: 0 0 12px; font-size: 1.02rem; }
+  .compare-col ul { margin: 0; padding-left: 1.2em; font-size: 0.88rem; line-height: 1.85; }
+
+  /* Work cards */
+  .work-group-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; margin: 36px 0 10px; }
+  details.work-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  details.work-card > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  details.work-card > summary::-webkit-details-marker { display: none; }
+  details.work-card > summary::before {
+    content: "▶"; font-size: 0.7em; color: var(--muted);
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+  }
+  details.work-card[open] > summary::before { transform: rotate(90deg); }
+  .medal { display: inline-block; padding: 3px 11px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; white-space: nowrap; }
+  .medal.minister { background: var(--gold-tint); color: var(--gold); }
+  .medal.excellence { background: var(--slate-tint); color: var(--slate); }
+  .division-tag { font-size: 0.74rem; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
+  .work-titles { flex: 1 1 auto; min-width: 200px; }
+  .work-id { font-family: var(--font-mono); color: var(--muted); font-size: 0.78rem; }
+  .work-title { font-weight: 700; font-size: 1.02rem; margin-top: 2px; }
+  .work-meta-line { font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
+  .work-body { padding: 0 22px 26px; border-top: 1px solid var(--border); }
+  .page-table-wrap { overflow-x: auto; margin-top: 18px; }
+  table.page-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 560px; }
+  table.page-table th { text-align: left; padding: 8px 10px; background: var(--surface-2); border-bottom: 1px solid var(--border); font-size: 0.76rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  table.page-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.page-table td.pno { font-family: var(--font-mono); color: var(--muted); white-space: nowrap; text-align: right; }
+  table.page-table td.prole { font-weight: 700; white-space: nowrap; color: var(--indigo-strong); }
+  table.page-table tr:last-child td { border-bottom: none; }
+  .deck-takeaway { background: var(--surface-2); border-radius: 8px; padding: 16px 18px; margin-top: 18px; font-size: 0.88rem; line-height: 1.8; }
+  .deck-takeaway strong { color: var(--indigo-strong); }
+
+  .checklist { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 8px 26px; box-shadow: var(--shadow); }
+  .checklist li { margin: 16px 0; font-size: 0.94rem; line-height: 1.8; }
+  .checklist li::marker { color: var(--gold); font-weight: 700; }
+  .checklist strong { color: var(--ink); }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 70px; padding-bottom: 10px; }
+  a { color: var(--indigo-strong); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="eyebrow">Slide Autopsy · 2025 Winning Entries</div>
+  <h1>受賞スライド解剖<br>地方創生☆政策アイデアコンテスト2025</h1>
+  <p class="sub">内閣府主催コンテストの受賞10作品・全230ページを1枚ずつ精読し、「どのページに何が書かれているか」を横断比較。勝ち筋の構成パターンを抽出した。</p>
+  <p style="margin-top:18px; font-size:0.82rem;">分析対象：contest.resas-portal.go.jp/2025　最終審査会ファイナリスト18作品中、受賞10作品</p>
+</header>
+
+<nav class="jumpbar">
+  <a href="#summary">サマリー</a>
+  <a href="#arc">共通の型</a>
+  <a href="#matrix">頻出要素マトリクス</a>
+  <a href="#resas">RESASの使われ方</a>
+  <a href="#insights">差がつく要素</a>
+  <a href="#compare">高校生 vs 一般</a>
+  <a href="#works">作品別詳細</a>
+  <a href="#checklist">2026年チェックリスト</a>
+</nav>
+
+<div class="container">
+
+  <h2 class="section-title" id="summary">サマリー</h2>
+  <p class="section-lede">地方創生担当大臣賞4作品・優秀賞6作品、合計10作品・230ページを全ページ精読。</p>
+  <div class="stat-grid">
+    <div class="stat-box"><div class="num">10</div><div class="label">受賞作品数</div></div>
+    <div class="stat-box"><div class="num">230</div><div class="label">分析総ページ数</div></div>
+    <div class="stat-box"><div class="num">23</div><div class="label">平均ページ数/作品</div></div>
+    <div class="stat-box"><div class="num">4</div><div class="label">地方創生担当大臣賞</div></div>
+    <div class="stat-box"><div class="num">6</div><div class="label">優秀賞</div></div>
+    <div class="stat-box"><div class="num">100%</div><div class="label">RESASデータ使用率</div></div>
+    <div class="stat-box"><div class="num">100%</div><div class="label">独自調査・現地取材実施率</div></div>
+  </div>
+
+  <h2 class="section-title" id="arc">受賞デッキ共通の「型」</h2>
+  <p class="section-lede">構成順序は作品ごとに細部が違うが、マクロな流れは驚くほど揃っている。6つの局面に整理すると次のようになる。</p>
+  <div class="arc">
+    <div class="arc-step"><div class="arc-no">PHASE 1</div><div class="arc-title">導入・地域紹介</div><div class="arc-desc">表紙＋チーム紹介＋対象地域の基礎データ（人口・産業・地理）を提示</div></div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step"><div class="arc-no">PHASE 2</div><div class="arc-title">データで課題を定量化</div><div class="arc-desc">RESASや公的統計で「なぜこの地域・テーマか」を数字で裏付け</div></div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step"><div class="arc-no">PHASE 3</div><div class="arc-title">独自調査で深掘り</div><div class="arc-desc">アンケート・ヒアリング・現地取材・実験で課題の実態や仮説を検証</div></div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step"><div class="arc-no">PHASE 4</div><div class="arc-title">解決策の提案</div><div class="arc-desc">具体策を提示。他地域の成功事例で実現可能性を補強することも多い</div></div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step"><div class="arc-no">PHASE 5</div><div class="arc-title">数字で実行計画を示す</div><div class="arc-desc">収支試算・スケジュール・KPI。可能なら実際に試作・施工・販売まで実施</div></div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step"><div class="arc-no">PHASE 6</div><div class="arc-title">まとめ・展望</div><div class="arc-desc">効果の総括と、他地域への横展開可能性を示して締める</div></div>
+  </div>
+  <div class="callout quote">
+    RESASは「PHASE 2」にほぼ限定して使われ、平均するとデッキ全体の最初の1/4以内、ページ数にして2.2ページ（約1割）に集中している。それ以降の説得力は独自調査が担っている。
+  </div>
+
+  <h2 class="section-title" id="matrix">頻出要素マトリクス</h2>
+  <p class="section-lede">10作品を横断して「どの要素を含んでいたか」を集計。◯の多い要素ほど、審査を通過するために実質的に必須に近い。</p>
+  <div class="table-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th class="elem-name-h">要素</th>
+          <th>h-4</th><th>h-5</th><th>h-7</th><th>h-8</th><th>h-9</th>
+          <th>u-2</th><th>u-4</th><th>u-5</th><th>u-6</th><th>u-7</th>
+          <th>採用率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="elem-name">RESASデータを課題の根拠に使用</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="rate"><span class="rate-bar" style="width:60px"></span>10/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">独自アンケート／ヒアリング／現地取材／実験のいずれか</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="rate"><span class="rate-bar" style="width:60px"></span>10/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">専門家・関係者への直接取材</td>
+          <td class="yes">◯</td><td class="no">—</td><td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="rate"><span class="rate-bar" style="width:48px"></span>8/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">複数年の収支・数値試算</td>
+          <td class="no">—</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td><td class="no">—</td><td class="yes">◯</td>
+          <td class="rate"><span class="rate-bar" style="width:36px"></span>6/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">実施スケジュール／ロードマップ</td>
+          <td class="no">—</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td>
+          <td class="rate"><span class="rate-bar" style="width:36px"></span>6/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">大規模アンケート（n=70以上）</td>
+          <td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td>
+          <td class="no">—</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td><td class="no">—</td>
+          <td class="rate"><span class="rate-bar" style="width:24px"></span>4/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">ステークホルダーの声・関係図を明示</td>
+          <td class="no">—</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td><td class="no">—</td>
+          <td class="yes">◯</td><td class="no">—</td><td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td>
+          <td class="rate"><span class="rate-bar" style="width:24px"></span>4/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">参考文献・出典ページを独立掲載</td>
+          <td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td>
+          <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td>
+          <td class="rate"><span class="rate-bar" style="width:24px"></span>4/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">他地域の成功事例を参照</td>
+          <td class="no">—</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td>
+          <td class="rate"><span class="rate-bar" style="width:30px"></span>5/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">目次ページを設置</td>
+          <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td>
+          <td class="no">—</td><td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td>
+          <td class="rate"><span class="rate-bar" style="width:18px"></span>3/10</td>
+        </tr>
+        <tr>
+          <td class="elem-name">提案の一部を実際に実行済み（試作・施工・販売等）</td>
+          <td class="yes">◯</td><td class="yes">◯</td><td class="no">—</td><td class="yes">◯</td><td class="no">—</td>
+          <td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td>
+          <td class="rate"><span class="rate-bar" style="width:18px"></span>3/10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title" id="resas">RESASはどう使われているか</h2>
+  <p class="section-lede">全作品が使うが、使い方は驚くほど限定的。「分析全体を貫くツール」ではなく「テーマ選定の根拠を数字で示すピンポイントな一撃」として使われている。</p>
+  <div class="resas-grid">
+    <div class="resas-card"><h4>人口マップ</h4><div class="count">6作品</div><div class="works">h-4・h-5・h-7・h-9・u-2・u-4 — 人口推移／人口ピラミッド／年齢別純移動／通勤通学分析</div></div>
+    <div class="resas-card"><h4>観光マップ</h4><div class="count">4作品</div><div class="works">h-4・h-8・u-5・u-6 — 宿泊者分析／目的地検索ランキング／観光地分析（滞留人口）</div></div>
+    <div class="resas-card"><h4>産業構造マップ</h4><div class="count">3作品</div><div class="works">u-2・u-5・u-7 — 労働生産性分析／特化係数分析</div></div>
+    <div class="resas-card"><h4>地域経済循環マップ</h4><div class="count">3作品</div><div class="works">u-2・u-4・u-7 — 地域経済循環分析（生産・分配・支出）</div></div>
+  </div>
+  <div class="callout">
+    <strong>RESAS専有ページ数の平均：2.2ページ／作品（全体の約9.6%）。</strong>
+    多くの作品は導入部（デッキ全体の最初の1/4以内）でRESASを1〜4ページ使い切り、以降は独自アンケート・現地ヒアリング・専門家取材・自作の実験データへと主役を明け渡す。RESASだけで押し切った作品はゼロ——「公的データによる客観性」と「一次情報による具体性」の両方が要求されている。
+  </div>
+
+  <h2 class="section-title" id="insights">受賞を分けた5つの要素</h2>
+  <p class="section-lede">マトリクスの中でも特に、賞の有無・ランクに影響していそうな要素を掘り下げる。</p>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-rate">10 / 10 works</div>
+      <h4>「二次データだけ」の作品はゼロ</h4>
+      <p>RESASや官公庁統計だけで構成された作品は1つもなく、全作品が独自アンケート・ヒアリング・現地取材・実験のいずれかで一次情報を取りに行っている。審査員は「RESASを検索できる力」ではなく「現場に足を運んで検証する力」を見ている可能性が高い。</p>
+      <div class="ex"><span class="chip">h-5: 校内酵母単離実験</span><span class="chip">u-5: 街頭600人調査+回帰分析</span></div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-rate">3 / 10 works（うち2/3が高校生の部）</div>
+      <h4>「提案」で終わらず「実行済み」を見せる</h4>
+      <p>最上位の大臣賞・優秀賞の一角は、庭園の施工、商品の販売イベント、研究の完遂など、提案の一部をプレゼン時点で実際にやり切っている。写真・売上・日付という一次証拠は「絵に描いた餅ではない」ことの最強の証明になっている。</p>
+      <div class="ex"><span class="chip">h-4: 庭園2箇所を施工・完成</span><span class="chip">h-8: メンマを試作・販売イベント実施</span></div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-rate">5 / 10 works</div>
+      <h4>他地域の成功事例で「実現できる」を裏付け</h4>
+      <p>自分たちのアイデアと似た取組が別の地域で既に成功している事例（売上・雇用の実数値つき）を提示し、実現可能性を補強するパターンが半数に見られる。ゼロから信じてもらうより、前例に乗せる方が説得コストが低い。</p>
+      <div class="ex"><span class="chip">h-5: 広島県「米粉ハウス米豊霧」</span><span class="chip">u-4: 鳥羽市内「旅館なおみ」</span></div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-rate">6 / 10 works</div>
+      <h4>複数年の収支試算まで踏み込む</h4>
+      <p>単年の概算ではなく、3〜5年分の売上・経費・利益推移を具体的な円単位で提示する作品が過半数。初年度は赤字でも黒字転換の時期を明示するなど、事業計画としての体裁を整えている。</p>
+      <div class="ex"><span class="chip">u-4: 5年間P/L・稼働率推移</span><span class="chip">u-7: 経済効果1.1〜6.3億円/年の試算</span></div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-rate">8 / 10 works</div>
+      <h4>現地ヒアリングが提案そのものを動かす</h4>
+      <p>専門家・住民・行政・事業者への直接取材は8割に見られるが、単なる裏取りに留まらず、聞き取り結果によって当初の解決策の方向性を修正（ピボット）する作品もある。「仮説→検証→修正」の過程自体を見せることが、思考の誠実さの証明になっている。</p>
+      <div class="ex"><span class="chip">u-2: ドローン仮説→ヒアリングで人材育成モデルへ転換</span></div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-rate">全10作品</div>
+      <h4>締めは「うちの町だけの話」で終わらせない</h4>
+      <p>まとめのページでは、成果の総括に加えて「このモデルは他の地域・他の伝統工芸にも応用できる」という横展開・汎用化の一言を添える作品が目立つ。1地域の解決策から政策のスケーラビリティへと視座を上げて終える。</p>
+      <div class="ex"><span class="chip">h-8: 三方良しモデル</span><span class="chip">u-7: 土佐和紙→伝統工芸全体への展開</span></div>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="compare">高校生の部 vs 大学生以上一般の部の傾向差</h2>
+  <p class="section-lede">同じ「型」に従いながらも、部門によって説得力の作り方に明確な違いが見える。</p>
+  <div class="compare-wrap">
+    <div class="compare-col hs">
+      <h4>高校生以下の部（h-4, h-5, h-7, h-8, h-9）</h4>
+      <ul>
+        <li>「実際に手を動かした」証拠を重視——庭園施工、商品試作・販売、理化学実験、現地インタビューの引用録音的な再現</li>
+        <li>学校・地元企業・自治体との連携を前面に出し、身近な大人を巻き込む構図</li>
+        <li>感情に訴えるストーリー装置（一人称の手紙、キャラクター化）を使う例がある</li>
+        <li>参考文献ページを独立して設けるなど、探究学習・論文の作法を踏襲</li>
+      </ul>
+    </div>
+    <div class="compare-col gen">
+      <h4>大学生以上一般の部（u-2, u-4, u-5, u-6, u-7）</h4>
+      <ul>
+        <li>学術理論・先行研究の引用で提案を理論武装（観光まちづくり4類型、特化係数分析など）</li>
+        <li>複数組織・複数自治体にまたがる広域連携や、自社サービスを組み込んだビジネスモデル提案</li>
+        <li>目次ページや章立ての反復など、情報設計そのものの完成度が高い</li>
+        <li>独自のテキストマイニング・回帰分析など、大学レベルの分析手法を投入する例がある</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="works">作品別詳細（ページ単位の内容一覧）</h2>
+  <p class="section-lede">各作品のスライドを1ページずつ開いて記録した内容。カードを開くと全ページの内訳が見られる。</p>
+
+  <div class="work-group-label">地方創生担当大臣賞（最高賞・4作品）</div>
+
+  <details class="work-card" id="work-h4">
+    <summary>
+      <span class="medal minister">大臣賞</span>
+      <span class="division-tag">高校生の部</span>
+      <div class="work-titles">
+        <div class="work-id">#h-4</div>
+        <div class="work-title">造園という武器で持続可能なまちづくり〜将来世代の地方創生〜</div>
+        <div class="work-meta-line">作庭チームSAKUR☆／愛知県立猿投農林高等学校／愛知県豊田市小原地区／全20ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>タイトル・チーム名・メンバー4名・対象地域を明記。四季桜と紅葉の現地写真を背景に使用。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">現状分析</td><td><strong>RESAS人口マップ（人口ピラミッド）</strong>。豊田市全体（人口約41.5万人）と小原地区（総人口3,218人）を対比し「全体統計では地区の課題が見えない」と問題提起。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（人口増減率・人口メッシュ）</strong>。市全体は-0.05%だがメッシュ地図で細分化すると局所的な人口減少が可視化されると比較。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（人口推移グラフ）</strong>。小原地区のみ2002〜2007年に人口増加していた謎と2009年以降の急減（2005年比25%減）を提示。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">原因分析</td><td>基幹産業だった採石業（美濃焼原料の花崗岩）の盛衰年表。1970年代10社→輸入陶磁器台頭等で2000年代に廃業相次ぎ、人口流出時期と一致と分析。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">現状課題</td><td>小原中学校教頭への取材。全校生徒66名、2023年出生数4人、10年後消滅の危機感を整理。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">現状課題</td><td>観光資源「四季桜」の紹介と2023年豪雨での名所崩落写真。年間観光客の73%が四季桜まつりに集中する円グラフ。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">現状課題</td><td>採石跡地での大規模土砂崩れ（2023年6月）、東京ドーム5個分の掘削跡地の航空写真。緑地再生が急務と結論。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">原因分析</td><td>円安による輸入陶磁器・輸入石材の価格高騰をグラフ・価格表で示し国産石材需要拡大の可能性を分析。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">解決策提案</td><td>「地場産業の新収益構造構築」＋「ガーデンツーリズムで観光客増加」の2本柱を提示。国交省ガーデンツーリズム制度を紹介。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">実施実績</td><td>産廃の石英斑岩・風化花崗岩を「レッドストーン」等として商品化。価格比較表と造園会社社長へのヒアリングで裏付け。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">実施実績</td><td>ガーデニングフェスタ出展、新ブランド「Redry」発表、大手造園業者・豊田スタジアムからの受注実績を写真報告。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">実施実績</td><td>専門家から挿し木技術を継承し発根率60%達成する過程を経時写真で記録。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">実施実績</td><td>採石跡地に高校生（全員造園技能士資格保有）が施工した庭園「東郷憩いの杜」の施工過程と完成写真。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">実施実績</td><td>2つ目の庭園「水車の見える公園」を施工前〜完成まで記録。全国デザインコンクール最高賞受賞。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">実施実績</td><td>完成・計画中の4庭園スポットを観光マップ上に配置し周遊観光の仕組みを図示。ガーデンツーリズム認定申請中。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">行政提言</td><td><strong>RESAS観光マップ（目的地検索ランキング推移）</strong>。人気1位「香嵐渓」との時期競合・交通格差を分析。市長・県知事への直接提言。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">実施実績</td><td>愛知環状鉄道駅前ロータリー工事や豊田スタジアム都市公園整備など公共事業での小原資材採用実績。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">広報実績</td><td>地産地消映画制作、観光庁長官賞受賞、大阪・関西万博招待講演・パネル展示など対外発信実績。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">まとめ</td><td>アンケート（観光意向96%）、観光客数1.3倍増（9.1万→12.1万人）、四季桜依存度73%→53%低下を提示し次の課題を示す。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>RESASの人口マップ・観光マップを計4ページで繰り返し使い問題発見から政策検証まで一貫して分析の背骨とする一方、デッキの過半（p12〜19）を実際の施工写真・受注実績・首長への提言・メディア掲載など「実行して成果を出した証拠」で埋め尽くしている。提案から実装・効果検証までを一気通貫で見せる、10作品中もっとも実行力の物証が濃いデッキ。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-h5">
+    <summary>
+      <span class="medal minister">大臣賞</span>
+      <span class="division-tag">高校生の部</span>
+      <div class="work-titles">
+        <div class="work-id">#h-5</div>
+        <div class="work-title">葛っとずっとごぱん大作戦</div>
+        <div class="work-meta-line">酵母見つけて使い隊／奈良県立青翔高等学校／奈良県御所市／全26ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>タイトル・チーム名・青翔高校2年・協力企業（井上天極堂、三和澱粉工業）・メンバー7名。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">地域紹介</td><td><strong>RESAS人口マップ（人口構成・人口推移）</strong>。御所市の紹介（人口約2.3万人、伝統産業「吉野葛」）と人口減少の提示。葛の葉が未利用資源と指摘。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">課題提起</td><td>青翔高校生200人への独自アンケート。御所市の一次産業品を知らない人83.2%、「吉野葛」を知らない人50%。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">課題提起</td><td>校内調査「パン派47.8%・ごはん派52.2%」、農水省データの主食用米需要減少、猛暑による二三等米化（約30%）。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">他地域事例</td><td>広島県「米粉ハウス米豊霧」の成功事例（売上高500万→2000万円、雇用4→15人）を提示。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">実験目的</td><td>研究テーマ「葛酵母の単離及び天然葛酵母米粉パンの開発」。3部構成を予告。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">実験方法</td><td>米粉パンに適した酵母選抜の5段階プロセス（培地適性・糖耐性・アルコール耐性・菌種同定）。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">実験方法</td><td>集積培養44サンプル→一次16→二次14→三次14を経て酵母菌9株に絞り込む選抜過程を表で提示。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">実験方法</td><td>主材料（米粉、単離酵母、糊化でんぷん等）と工程。グルテン代用に糊化でんぷんを使い地域資源活用を強調。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">実験方法</td><td>5つの計測項目（二次発酵時間・菌数検査・衛生検査・API試験・官能調査）をアイコンで整理。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">実験結果</td><td>単離酵母5株と市販酵母の二次発酵時間を比較。単離酵母平均4時間17分 対 市販酵母27分。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">実験結果</td><td>培養液中とパン生地中の菌数比較（n=3）。生地中で増殖が弱い株もあると考察。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">実験結果</td><td>4系統の酵母を写真付き表で分類（フルーティー香・しっとり感・抗酸化色素・香気エステル）。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">実験結果</td><td>QDA法レーダーチャートと大腸菌・真菌検査（陰性）を報告。御所葛葉D酵母が市販酵母を上回る。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">提案の裏付け</td><td>米粉のメリット（消化の良さ・アレルギー対応）、世界グルテンフリー市場拡大グラフ（農水省データ）。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">提案の価値</td><td>消費者・新たな需要・社会連携・唯一性・共生のハブ・地産価値の6要素で付加価値を整理。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">他地域事例</td><td>山口県長門市「海辺のパン屋ららベーカリー」。天然酵母パンの商品化・販売実績を紹介。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">実施スケジュール</td><td>2024〜2028年以降の商品化ロードマップ（単離・試作→安全性確認→委託打診→販売・改善→引き継ぎ）。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">実施スケジュール</td><td>初期フェーズと拡大フェーズ（御所市→奈良県→全国）の6ステップ図。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">展望</td><td>地域農家・高校＆企業・地元の人々・全国の4主体が循環する関係図。</td></tr>
+          <tr><td class="pno">21</td><td class="prole">国際展開</td><td>インドネシアの学校との共同研究、国際科学フェア参加実績を写真報告。</td></tr>
+          <tr><td class="pno">22</td><td class="prole">参考文献</td><td>RESAS・農水省統計・学術論文を含む21件の引用文献リスト。</td></tr>
+          <tr><td class="pno">23</td><td class="prole">謝辞</td><td>協力企業（井上天極堂、三和澱粉工業）への謝辞。</td></tr>
+          <tr><td class="pno">24</td><td class="prole">まとめ</td><td>「ご清聴ありがとうございました」（実質的な本編最終ページ）。</td></tr>
+          <tr><td class="pno">25</td><td class="prole">付録</td><td>コスト・協力者・人的リソース・模倣リスクとその対策（予約販売、定期契約等）を整理した質疑応答用スライド。</td></tr>
+          <tr><td class="pno">26</td><td class="prole">付録</td><td>農水省「令和7年産米の農産物検査結果」から1等米比率の年次推移データを掲載。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>RESASは導入の人口推移グラフで一度使うのみで、デッキの半分近く（p6〜14）を単離手順・測定・菌種同定・官能評価・安全性検査という理化学実験レポートに割く「研究発表」型。他地域の先行成功事例を2件挟んで実現可能性を補強し、末尾に参考文献・謝辞という学術論文型のクロージングと質疑応答対策の付録を置く、科学的厳密性で押し切るデッキ。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-u2">
+    <summary>
+      <span class="medal minister">大臣賞</span>
+      <span class="division-tag">一般の部</span>
+      <div class="work-titles">
+        <div class="work-id">#u-2</div>
+        <div class="work-title">「越境共創」から始まる地域の未来</div>
+        <div class="work-meta-line">チームきづなPARK（フォーバル×島田製作×Next IWATE）／岩手県栗原市・登米市・一関市・平泉町／全24ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>造語「栗登一平」を掲げ、3社共同チームを日本地図上に対象地域をハイライトして紹介。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">エリア紹介</td><td>造語の由来説明（栗原市・登米市・一関市・平泉町の頭文字＋伊達藩の歴史的つながり）。名所写真4枚。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">地域の現状</td><td>4市町の人口・世帯数・面積・産業特性・農業特性・特産品を網羅した大型比較表。共通資源も整理。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">スローガン</td><td>「やれることは一緒にやっちゃえ」を手書き書道文字で提示。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（人口構成分析）</strong>。2050年に生産年齢人口が2020年比半分以下という分析。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">データ分析</td><td>地域経済循環分析（環境省・価値総合研究所）。食料品・電子部品デバイス・農業が重要産業と特定。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">データ分析</td><td><strong>RESAS産業構造マップ（産業構造分析）</strong>。建設業・製造業は労働生産性が高いが農業は低いと特定。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">データ分析</td><td>農林水産省データ。田耕地面積合計43,740ha、小規模経営体（1.0〜2.0ha）が多いと分析。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">地域の現状</td><td>Google Map衛星写真4枚で地域を紹介。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">提言</td><td>「農業の労働生産性向上のモデルづくりを栗登一平で実証実験できないか」という中心メッセージ。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">解決策仮説</td><td>産業連関データから「建設業×電子部品デバイス＝ドローン」という技術仮説を導出。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">他地域事例</td><td>農業ドローン活用事例3件（農林水産省資料）。60〜80%の労働時間削減効果。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">収支試算</td><td>対象＝水稲253,910a、削減効果50%（保守的設定）という前提条件を明示。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">収支試算</td><td>220,000時間以上削減＝フルタイム労働者111人分に相当という試算結果。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">現地ヒアリング</td><td>4市町の役所・商工会議所への聞き取り（兼業農家8〜9割、ノウハウ共有不足等）。ここで方針転換。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">方針転換</td><td>「経営支援ができ、つなげる人が必要」「情報の可視化と集約・共有が必要」という新方針提示。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">解決策再定義</td><td>「域内事業者の情報の把握・集約を行うハブ人材」という手書き文字の中心メッセージ。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">解決策提案</td><td>独自呼称「栗登一平企業ドクター（KKD）」という人材モデルと情報可視化・集約の構想図。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">実施策具体化</td><td>KKD候補人材（商工会議所指導員・中小企業診断士・地元高専生等）を実名・実団体つきで列挙。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">解決策全体像</td><td>自社サービス「経営情報分析プラットフォーム きづなPARK」を核にした4者連携循環図。</td></tr>
+          <tr><td class="pno">21</td><td class="prole">実施スケジュール</td><td>一関商工会議所等と連携した実証実験（R7.10〜、約5,800事業所データ収集目標）の推進体制図。</td></tr>
+          <tr><td class="pno">22</td><td class="prole">まとめ</td><td>課題／解決策と効果試算／グランドデザイン／実証実験の第一歩、の4項目で総括。</td></tr>
+          <tr><td class="pno">23</td><td class="prole">展望</td><td>「別の地域にも横展開。地方創生することで日本を元気に！」、現地訪問時のチーム写真。</td></tr>
+          <tr><td class="pno">24</td><td class="prole">謝辞</td><td>現地訪問（平泉町役場・一関市役所・栗原市役所等）の写真、独自キャラクター紹介、感謝メッセージ。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>RESASと各種統計で「農業の労働生産性の低さ」を定量分析し、ドローン活用という仮説と数値試算まで組み立てたところで、現地ヒアリングにより「情報・人材・ノウハウ不足」という別の壁が判明し方針転換（ピボット）する構成が最大の特徴。自社サービスを組み込んだビジネス色の強い提案と、検証プロセスの開示そのものをストーリーの見せ場にしている。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-u7">
+    <summary>
+      <span class="medal minister">大臣賞</span>
+      <span class="division-tag">一般の部</span>
+      <div class="work-titles">
+        <div class="work-id">#u-7</div>
+        <div class="work-title">土佐和紙×デジタルで産業拡大！〜令和の文化継承モデル〜</div>
+        <div class="work-meta-line">良食良寝／高知県全域／全24ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>コンテスト情報（四国ブロック・高知県全域）、チーム名「良食良寝」、メンバー4名、現地集合写真。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">問題提起</td><td>「日本の強みは？」の一文のみのブリッジスライド。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">導入・背景</td><td>「地域多様性」。日本地図に各地の一次産業・伝統工芸・祭り・食文化をアイコンで配置。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">課題提起</td><td>「日本の悲観的シナリオ」。地域産業/文化の経済価値低下→担い手減少→文化消滅の因果図（前半）。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">解決の方向性</td><td>同スライド後半。「感覚的な良さが経済価値になる仕組み」「失われた文化を再現できる仕組み」を追加提示。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">現地調査</td><td>8/29〜31に高知県で実施した現地調査時の和紙見本の写真を掲載。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">テーマ選定理由</td><td>高知県地図で対象エリアを明示、1000年の歴史・製法の非規格性、県の「土佐和紙総合戦略」の存在を提示。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">目次</td><td>全5章構成を提示、以降各章冒頭に同じ目次を繰り返し挿入。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">データ分析</td><td><strong>RESAS地域経済循環マップ／産業構造マップ</strong>。地域経済循環率80.6%（全国44位）、労働生産性が全国平均の6割強と指摘。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">データ分析</td><td><strong>RESAS産業構造マップ</strong>。製造業をバブルチャートで分解し、紙加工品製造業の修正特化係数2.70を発見。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">データ分析</td><td>経産省統計・いの町紙の博物館データ。従事者数（H13比約半減）、紙生産量（32%減）、入館者数（ピーク比3割）。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">解決策の方向性</td><td>「産業拡大」（稼げる産業を取り戻す）と「文化保全」（暗黙知の形式知化）の2軸を提示。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">目次</td><td>「3.政策内容」を強調。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">解決策</td><td>政策1「土佐和紙データベース構築事業」。生産者DBと製品DBの2種のモックアップ画面。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">解決策</td><td>政策2「NEO土佐かみどんや事業」。原料調達・生産プロセスの不透明さという課題を提示。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">解決策</td><td>多様な消費者ニーズを3ペルソナ（クラフト作家・絵画修復士・外国人観光客）で具体化。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">解決策</td><td>「土佐和紙まるごとサイト」のUIモックアップ（ニーズ入力フォーム、日英切替対応）。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">解決策</td><td>サイトの裏側システム図。消費者⇄サイト⇄AIでニーズを蓄積・学習し職人にフィードバックする仕組み。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">解決策</td><td>政策3「職人暗黙知/用具のデジタルアーカイブ事業」。3Dスキャン、モーションキャプチャ、「ブレインモデル」の3手法。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">目次</td><td>「4.予想される経済効果」を強調。</td></tr>
+          <tr><td class="pno">21</td><td class="prole">期待効果</td><td>構造的課題→政策①②③→効果（価値向上・売上向上・コスト削減）のロジックモデル図。</td></tr>
+          <tr><td class="pno">22</td><td class="prole">収支計画</td><td>市場規模×改善幅の試算表から「1.1〜6.3億円/年の経済効果」「費用対効果3〜10倍」を算出。初年度コスト2,500〜5,500万円も明記。</td></tr>
+          <tr><td class="pno">23</td><td class="prole">目次</td><td>「5.まとめ」を強調。</td></tr>
+          <tr><td class="pno">24</td><td class="prole">まとめ</td><td>3政策の相互連関を示す循環図。「土佐和紙→伝統工芸全体」への横展開ロードマップと協力団体への謝辞。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>「日本の強み＝地域多様性」という国レベルの問題提起から始めるトップダウン型。RESASの地域経済循環マップ・産業構造マップ（特化係数2.70）でテーマ選定を数字で正当化し、政策提案は「DB構築」「AIマッチングサイト」「3Dスキャンによる技術のデジタル継承」という一貫コンセプトの3本柱。5章構成の目次を毎章冒頭で反復し、論理構成の一貫性を強く印象付ける設計。</div>
+    </div>
+  </details>
+
+  <div class="work-group-label">優秀賞（6作品）</div>
+
+  <details class="work-card" id="work-h7">
+    <summary>
+      <span class="medal excellence">優秀賞</span>
+      <span class="division-tag">高校生の部</span>
+      <div class="work-titles">
+        <div class="work-id">#h-7</div>
+        <div class="work-title">School「愛」が「消滅可能性自治体」を救う？</div>
+        <div class="work-meta-line">大手前高松高等学校／香川県／全21ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>「現在の私」「卒業1年目の未来の私」「就職した頃の未来の私」という3つの時間軸のキャラクターでメンバーを提示。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">背景</td><td>人口戦略会議の自治体9分類データ（香川県内4自治体が消滅可能性自治体）と探究全体の9ステップ構成図。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">背景</td><td>2025年6月「香川県民の日」創設表明を紹介。他14都道府県の県民の日事例を調査し「県外進学者向け施策がない」と疑問提示。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">ターゲット設定</td><td>県民の日イベント想定ターゲット層を6区分に整理し、県外進学の高校生・県外在住大学生を独自ターゲットに設定。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（人口推移・From-To分析）</strong>。香川県人口は1999年ピークに減少、大阪・東京等への転出超過を可視化。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（年齢階級別純移動数）</strong>。20〜24歳の転出超過が最大（-1,552人）で進学・就職起因と分析。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">先行研究</td><td>香川県高校生意識調査、トラストバンク調査、学術論文を引用し「地域愛着」がUJターン意思につながることを論証。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">現状把握</td><td>「ホームカミングデー（学園祭）」を地域愛着の「シンボル」候補と位置づけ、事前アンケート結果を紹介。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">アンケート</td><td>中高生201名への独自アンケート。77%が学校行事で最も印象深いものとしてHCDを選択。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">アンケート</td><td>「将来香川県に住みたいか」の結果（戻ってきたい43%）を円グラフ・男女別棒グラフで提示。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">アンケート</td><td>学年別の住みたい意向、住みたい・戻りたい理由を男女別グラフで分析。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">アンケート</td><td>「香川に住みたくない」層でも約70%がHCD参加意向、95%が地元企業参加を面白いと回答。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">卒業生調査</td><td>HCD参加卒業生12名への声掛けアンケート。進学先（県外大学75%）、参加理由を集計。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">学校の経験</td><td>地元企業と連携する探究学習「プロジェクトToBe」。企業からの「もっと学生と交流したい」という声。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">仮説設定</td><td>「香川県民の日」を起点とした『You「愛」ターン』プロジェクトを企画。関係者相関図。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">解決策</td><td>「HCW（ふるさとカミングウィーク）」を新設。SHCD／AHCDの2本柱と役割分担表。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">解決策詳細</td><td>SHCD：卒業生ブース常設化など5つの具体策。現役生・卒業生・企業・保護者の交流イメージ図。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">解決策詳細</td><td>AHCD：HCD後の同窓会を現役高校生が企画・運営。自治体による会場無料開放等の特典設計。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">メリット整理</td><td>卒業生・県内企業・学校・自治体・現役高校生それぞれの視点でメリットを整理（人材確保コスト97万円/件等）。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">まとめ・参考文献</td><td>中高一貫校としての継続調査可能性を述べ、参考資料1〜5を明記。</td></tr>
+          <tr><td class="pno">21</td><td class="prole">まとめ</td><td>「未来のあなた（私）へ」の手紙形式で、未来の自分それぞれへメッセージを送る形で締める。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>「現在の私→未来の私」という一人称の時間軸ストーリーを冒頭と結末で完全に対応させる額縁構造。RESASの人口マップ系データで若者流出を裏付けた後、先行研究レビュー→複数回の独自アンケート（中高生201名、卒業生12名）で「地域愛着の鍵は学校行事」という仮説を丁寧に検証する実証重視の構成に、感情訴求のストーリー装置を重ねる二層構造。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-h8">
+    <summary>
+      <span class="medal excellence">優秀賞</span>
+      <span class="division-tag">高校生の部</span>
+      <div class="work-titles">
+        <div class="work-id">#h-8</div>
+        <div class="work-title">竹からはじまる地方創生</div>
+        <div class="work-meta-line">宮崎県立高千穂高等学校／宮崎県高千穂町／全28ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>「放置竹林を資源に変える高千穂高校生の挑戦」。チーム名「ウゴノタケノコ」、応募者4名。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">地域紹介</td><td>高千穂町の人口10,588人、産業別就業人口、町の予算額93.74億円、棚田の写真。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">地域紹介</td><td><strong>RESAS観光マップ（宿泊者分析）</strong>。年間観光客数136.8万人、観光消費額61.37億円。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">自己紹介</td><td>高千穂高校の概要（全校生徒270人、3学科）、「地域で学び、地域を学ぶ」という教育方針。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">課題提起</td><td>学校農場に隣接する竹林が管理されず「放置竹林化」し敷地に侵入している実態を航空写真で提示。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">原因分析</td><td>竹専門業者への取材。竹の地下茎による繁殖特性、成長スピード（1日1m以上）を図解。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">原因分析</td><td>竹害の実例（根の露出、路肩崩壊）を写真で提示。専門家インタビューで土砂災害リスクを解説。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">原因分析</td><td>日之影町竹細工資料館訪問、商店街での住民インタビュー。竹製品衰退の歴史を調査。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">原因分析</td><td>竹製品がかつて生活必需品だった歴史を現地取材で深掘り。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">原因分析</td><td>3名の住民の生の声を吹き出しで掲載し、竹製品利用の衰退を裏付け。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">原因分析</td><td>農林水産省データで農業経営体数・耕地面積の推移を提示し、農業従事者減少が竹害増加の一因と推察。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">原因分析</td><td>林野庁データで宮崎県が全国8位の竹林面積を持ち増加傾向にあることを提示。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">解決策</td><td>「僕達」「学校」「高千穂町」の3者の強みをベン図で整理しアクションプランの土台とする。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">解決策</td><td>「竹を観光消費してもらおう」「放置竹林から商品開発して稼ごう」というスローガンスライド。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">市場性根拠</td><td>地方創生データ分析プラットフォーム「RAIDA」による宮崎・熊本の旅行消費額推移グラフ。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">実施内容</td><td>竹専門業者と連携し、幼竹の収穫・仕分け・塩蔵・味付けまでの商品化プロセスを写真で紹介。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">実施内容</td><td>規格外の「幼竹」がメンマ加工で収益源に変わるという因果構造を図解。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">実施実績</td><td>「高千穂のメンマ」完成。2025年11月に高校でのリリースイベント、地元スーパーでの販売実施実績。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">収支計画</td><td>メンマ事業の収益試算表（2025〜2027年度）。初年度赤字→3年目14万円の黒字予測。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">実施内容</td><td>放置竹林の伐採竹を活用した竹灯籠作りに挑戦。防腐処理と竹の若さの組み合わせで腐敗実験を実施。</td></tr>
+          <tr><td class="pno">21</td><td class="prole">実験結果</td><td>若竹×古竹×処理3種×経過日数2種の全12パターンを写真付き表で提示。</td></tr>
+          <tr><td class="pno">22</td><td class="prole">実験結果</td><td>古い竹が竹灯籠に適し、追加の5ヶ月長期実験で「炙り」処理が最適と判明。</td></tr>
+          <tr><td class="pno">23</td><td class="prole">他地域事例</td><td>大分県竹田市の竹灯籠イベント「竹楽」（里山保全百年計画）を視察・参考事例として紹介。</td></tr>
+          <tr><td class="pno">24</td><td class="prole">解決策（未実施）</td><td>「路地裏竹あかり」構想。ステークホルダー・実施スケジュール（2025年12月〜2026年2月）を提示。</td></tr>
+          <tr><td class="pno">25</td><td class="prole">政策提案</td><td>メンマ事業の収益性向上・横展開案（給食素材提供、新フレーバー開発、農家の農閑期収入源化）。</td></tr>
+          <tr><td class="pno">26</td><td class="prole">政策提案</td><td>竹灯籠の収益化検討と竹林整備の年間提案スケジュール。</td></tr>
+          <tr><td class="pno">27</td><td class="prole">まとめ</td><td>「三方良し」（学び・地域資源活用・再認識）を写真コラージュとともに総括。</td></tr>
+          <tr><td class="pno">28</td><td class="prole">参考文献</td><td>農水省・林野庁データ、RAIDA、RESASを参考文献として明記。取材協力者への謝辞。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>身近な課題（学校農場横の放置竹林）を専門家取材とデータで原因分析し、「メンマ（食）」と「竹灯籠（観光）」という2つの実践に落とし込む実証重視の構成。収益試算表や腐敗実験結果という一次データを自ら生成し、実際に販売・イベントまで到達した実行力を強くアピール。RESAS自体は観光マップ1箇所に限定し、農水省・林野庁統計とRAIDA、現地取材のハイブリッドでオリジナリティを出す。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-h9">
+    <summary>
+      <span class="medal excellence">優秀賞</span>
+      <span class="division-tag">高校生の部</span>
+      <div class="work-titles">
+        <div class="work-id">#h-9</div>
+        <div class="work-title">読谷から香る、新しい農作物</div>
+        <div class="work-meta-line">沖縄県立球陽高等学校／沖縄県読谷村／全28ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>「読谷村産バニラで地域と若者をつなぐ〜」。バニラの花と鞘の写真を背景にメンバー5名を記載。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">地域紹介</td><td>沖縄県読谷村の基本データ（人口42,274人）、「日本一人口の多い村」を強調。名所写真4枚。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（人口構成分析・人口増減分析）</strong>。総人口は横ばいだが少子高齢化が進行。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">データ分析</td><td><strong>RESAS人口マップ（通勤通学分析）</strong>。流入者3,310人 vs 流出者8,060人をドーナツ円グラフで比較。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">課題：高齢農業</td><td>読谷村と今帰仁村の年齢階層別基幹的農業従事者数比較。読谷村は高齢者割合8割・30代以下0人。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">課題：低所得</td><td>沖縄県農家所得（約192.8万円）vs全国（約327.7万円）、差134.9万円。農水省統計グラフ。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">課題：低所得</td><td>台風被害を受けた畑・ビニールハウスの写真4枚で所得低迷の一因を視覚的に補強。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">課題まとめ</td><td>課題1〜3を4分割スライドで再掲し要点を再確認する総括ページ。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">橋渡し</td><td>「若者が『やりたい！』と思える新しい農業が必要」という吹き出しを重ねる演出。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">解決策提示</td><td>「バニラビーンズ」を大きく提示（表紙と同じ背景素材を再利用）。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">実例裏付け</td><td>読谷村産バニラの新聞・TV記事3件と実在企業「読谷テロワール」紹介。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">データ分析</td><td>バニラビーンズ輸入相手国円グラフ（財務省貿易統計、マダガスカル95%）。ほぼ100%輸入という現状。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">生産者取材</td><td>読谷テロワールの生産規模（耕地約800坪、単価5万円/kg）、必要量1tとのギャップを提示。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">独自調査</td><td>球陽高校生徒・職員112名対象アンケート。認知度5%だが「食べてみたい」96%というギャップ。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">解決策の根拠</td><td>バニラ栽培のメリット4点（無農薬・軽量保存性・高単価・用途の広さ）を整理。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">提案全体像</td><td>「バニラビーンズ×教育・観光」というコンセプト図。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">実施策①</td><td>教育連携：農園見学プログラム（受粉体験・栽培学習）。見学料収入試算（年間216万円）。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">実施策②</td><td>高付加価値化：「やんばるジェラート」とのコラボ商品化。売上試算（年間3,066万円等）。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">課題転換</td><td>生産拡大の壁「キュアリング」技術の紹介への橋渡し。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">技術解説</td><td>キュアリング（発酵・熟成工程）の説明図。伝統的手法と専用機械による効率化を対比。</td></tr>
+          <tr><td class="pno">21</td><td class="prole">実施策③</td><td>新規農家が生産→読谷テロワールが買取・キュアリングする委託モデル。耕作放棄ハウス活用。</td></tr>
+          <tr><td class="pno">22</td><td class="prole">実施策④</td><td>沖縄土産購入実態調査を根拠に、既存人気土産とのコラボ提案。</td></tr>
+          <tr><td class="pno">23</td><td class="prole">実施策④</td><td>土産品売上推移データを用いた市場規模試算（バニラ関連売上約2億5千万円）。</td></tr>
+          <tr><td class="pno">24</td><td class="prole">実施策④</td><td>御菓子御殿読谷本店の写真、6次産業化（1次×2次×3次）概念図。</td></tr>
+          <tr><td class="pno">25</td><td class="prole">数値目標</td><td>新規生産者10人で生産量1t・売上5,000万円という目標設定。</td></tr>
+          <tr><td class="pno">26</td><td class="prole">期待効果</td><td>認知度向上→需要増加→就農促進→生産者増加→供給安定→所得向上→ブランド化、の好循環図。</td></tr>
+          <tr><td class="pno">27</td><td class="prole">現状整理</td><td>ヒト・モノ・カネ・ハコ・情報・情熱の6資源を◎○×で評価する表（カネのみ×）。</td></tr>
+          <tr><td class="pno">28</td><td class="prole">まとめ</td><td>アクションプラン、行政・金融機関支援の必要性、生産者の生の声を引用して締め。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>地域紹介→3つの課題（人口流出・高齢農業・低所得）→解決策（バニラビーンズ）→実現可能性の裏付け（新聞記事・実在企業・独自アンケート）→4段階の実行ステップ→数値目標という一直線の教科書的ストーリー。実在の地元生産者を巻き込み、写真・新聞記事・独自アンケートで高校生の提案ながら地に足のついた実現性を演出。RESASは人口マップのみに絞って序盤に集中使用。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-u4">
+    <summary>
+      <span class="medal excellence">優秀賞</span>
+      <span class="division-tag">一般の部</span>
+      <div class="work-titles">
+        <div class="work-id">#u-4</div>
+        <div class="work-title">釣って、泊まって、味わって 鳥羽で広がる釣りスタイル</div>
+        <div class="work-meta-line">三重県創生研鑽会／三重県鳥羽市／全19ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>答志島の釣り港と灯台の写真を背景に、タイトルとメンバー8名（社会人中心）の所属を記載。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">目次</td><td>「鳥羽市について／課題／FW調査／解決案／収支計画／まとめ」の6章構成を色分け提示。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">地域紹介</td><td>三重県内での位置図、人口1.6万人などの基礎情報、離島・海女文化の魅力を整理。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">データ分析</td><td><strong>RESAS地域経済循環マップ</strong>。産業別生産額（3次産業1,111億円）と循環率93.1%を提示。観光業が基幹産業と結論。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">課題提起</td><td><strong>RESAS人口マップ</strong>。総人口が2020年17,525人→2050年推計8,107人（半減）という推移。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">課題提起</td><td>空き家率27%で県内ワースト3位（鳥羽市空家対策計画データ）。離島地区に空き家の3分の1が集中。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">原因分析</td><td>空き家放置→景観・治安悪化→観光衰退という悪循環を仮説フロー図で提示。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">現地調査</td><td>答志島等の釣りスポット・季節別釣果表、定期船職員・釣り人への生インタビュー。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">解決策概要</td><td>「空き家を利用した新観光スタイル」提案。ターゲット＝県外釣り人、活用法＝宿泊＋体験施設。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">データ分析</td><td><strong>RESAS滞留人口マップ（モバイル空間統計）</strong>。答志島周辺のヒートマップと空き家区分の円グラフで選定根拠を補強。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">他地域事例</td><td>鳥羽市内の先行事例「旅館なおみ」（築100年空き家リノベ、クラウドファンディングで2時間で300万円達成）。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">解決策具体</td><td>「現代版・木賃宿」コンセプト、想定ターゲット、釣果を宿泊費に充当する「魚で泊まれる」仕組み。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">収支計画</td><td>宿泊基本料金＋有料オプション、魚の物々交換モデル、地元飲食店との連携マージンモデル。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">収支計画</td><td>「釣果ポイント制」「魚持ち込み割引制度」など釣果と宿泊を結ぶ独自の仕組み。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">事業計画</td><td>宿泊料金5,000円/人・定員6名・年間営業300日・初期投資450万円などの事業計画数値。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">スケジュール</td><td>現在ターゲットと将来ターゲットの分刻みモデルコースを2パターン提示。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">収支計画</td><td>初期投資内訳（合計450万円）、3年目までの資金回収計画、5年間ビジョンのフロー図。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">収支計画</td><td>5年分の詳細収支シミュレーション表。利益は1年目31万円→5年目355万円。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">まとめ</td><td>直接効果（関係人口創出等）と間接効果（空き家解決、雇用創出）を円環図で提示。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>RESASの地域経済循環マップと人口マップでマクロな課題を定量的に示し、市独自の空き家対策計画データを重ねて「観光業活性化×空き家問題解消」に課題を収斂。自らのフィールドワーク（現地インタビュー）で「釣り人向け宿泊ニーズ」を検証し、先行事例で実現可能性を補強。円単位・5年分のP/Lまで踏み込んだ事業計画で締める、終始一貫したコンセプトのデッキ。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-u5">
+    <summary>
+      <span class="medal excellence">優秀賞</span>
+      <span class="division-tag">一般の部</span>
+      <div class="work-titles">
+        <div class="work-id">#u-5</div>
+        <div class="work-title">京都コンテクスト・トレイル</div>
+        <div class="work-meta-line">同志社大学政策学部 野田ゼミ／京都市／全20ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>神社の写真を背景に「神社の歴史×テキストマイニングによる地域価値の再発見」というサブタイトル。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">目次</td><td>「現状・課題／政策提言／効果検証／今後の展望」の4部構成を、各章のサブ項目（計17項目）まで列挙。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">データ分析</td><td><strong>RESAS観光マップ（宿泊者分析）</strong>。延べ宿泊者数が全国3位、観光関連就業者15.3万人（京都の5人に1人）。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">課題提起</td><td><strong>RESAS観光マップ（観光地分析・滞留人口）</strong>。他都道府県居住者の滞留人口ヒートマップでオーバーツーリズムの偏在を可視化。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">課題提起</td><td>独自の街頭調査（京都駅・嵐山、n=75）で「悪い変化があった」計50.7%。市民の生の声を引用。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">原因分析</td><td><strong>RESAS産業構造マップ</strong>。混雑による機会損失を約35億円と算出、観光客一人当たり付加価値額が政令市中低水準と分析。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">原因分析</td><td>将来負担比率132%、財政力指数0.8、高齢化率28.5%から観光による税収増の必要性を提示。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">既存施策検証</td><td>時期・時間・場所の3分散施策を比較し「効果は限定的」と結論。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">原因分析まとめ</td><td>混雑要因をロジックツリーで分解し「場所の集中」が根本原因と特定。市長・MICE推進室への独自ヒアリング。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">政策提言仮説</td><td>独自定義「コンテンツ型観光」vs「コンテクスト型観光」。街頭調査でコンテンツ型が約7割、リピーター90%以上。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">解決策概要</td><td>神社の由緒をテキストマイニングし文脈で主要観光地と未開拓神社を結ぶという政策コンセプト。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">分析手法</td><td>市内神社940社の駒札情報を網羅収集し、位置・創建・御祭神・ご利益に整理したデータと現地調査写真。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">分析手法</td><td>KH Coderを用いた3手法（階層型クラスター分析・対応分析・共起ネットワーク）の解説。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">分析結果</td><td>5種類の分析図を提示し、そこから3つの「コンテクスト・トレイル」案を導出。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">解決策①</td><td>貴族浪漫コンテクスト・トレイル。嵯峨嵐山→西京区への周遊コースを分析結果で裏付け提案。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">解決策②</td><td>素戔嗚尊コンテクスト・トレイル。清水・祇園→左京区の神社群への「開運さんぽ」コース。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">解決策③</td><td>芸能コンテクスト・トレイル。四条烏丸・河原町→西京・右京・北区の神社群への「芸能の神」コース。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">効果検証</td><td>市民・観光客600人への街頭調査で訪問意欲を5段階評価、回帰分析で40〜50代に有意な効果と実証。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">検証</td><td>神社・商店街10箇所へのヒアリング結果を一覧化。全箇所から観光振興への協力的な意見。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">まとめ</td><td>オーバーツーリズム緩和・税収増・市民摩擦緩和などの効果を放射状図で整理し、今後の課題を提示。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>RESASの観光マップ・産業構造マップでオーバーツーリズムの実態を多角的に立証し、既存の分散施策の効果検証を経て「場所の集中」に課題を絞り込む論理階層の深い構成。神社940社のデータをKH Coderでテキストマイニングし「コンテクスト型観光」という独自の学術的概念を打ち出す点が最大の特色。600人規模の街頭調査＋回帰分析＋実地ヒアリングまで行い、調査の量と分析の厳密さで説得力を担保。</div>
+    </div>
+  </details>
+
+  <details class="work-card" id="work-u6">
+    <summary>
+      <span class="medal excellence">優秀賞</span>
+      <span class="division-tag">一般の部</span>
+      <div class="work-titles">
+        <div class="work-id">#u-6</div>
+        <div class="work-title">町家と紅茶を未来につなぐ 白市まちづくりツーリズム</div>
+        <div class="work-meta-line">県立広島大学 和田ゼミ Harmonia／広島県東広島市白市地区／全20ページ</div>
+      </div>
+    </summary>
+    <div class="work-body">
+      <div class="page-table-wrap"><table class="page-table">
+        <thead><tr><th>#</th><th>役割</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="pno">1</td><td class="prole">表紙</td><td>チーム名とメンバー8名。白市の町家写真、紅茶ポットの線画イラストをあしらったデザイン性の高い表紙。</td></tr>
+          <tr><td class="pno">2</td><td class="prole">データ分析</td><td>広島県総観光客数推移、市町別観光客数・観光消費額（広島市に一極集中）の3グラフ。</td></tr>
+          <tr><td class="pno">3</td><td class="prole">データ分析</td><td>旅行時の重視点（歴史的建造物・食への関心）、リピート率を地域別で比較。</td></tr>
+          <tr><td class="pno">4</td><td class="prole">課題提起</td><td>「Dive!Hiroshima」スポットアクセス数ランキングで、白市の町並みが747位と最下位級と判明。対象地域を絞り込む転換点。</td></tr>
+          <tr><td class="pno">5</td><td class="prole">データ分析</td><td><strong>RESAS観光地分析（滞留人口マップ）</strong>。他3地区と比較し「白市だけ滞留人口がいない」と定量的に立証。</td></tr>
+          <tr><td class="pno">6</td><td class="prole">データ分析</td><td><strong>RESAS観光地分析（滞留人口の性別年齢別）</strong>。「近隣の町並みには若者・女性も来訪→白市は来訪なし」と補強。</td></tr>
+          <tr><td class="pno">7</td><td class="prole">地域概要</td><td>白市地区の位置図、文化財配置地図、伊原正三家住宅の写真、名産品「白市紅茶」のパッケージ写真。</td></tr>
+          <tr><td class="pno">8</td><td class="prole">地域概要</td><td>1503年築城〜2024年NPO設立までの略史。人口推移（2005〜2025年で1,900人→1,626人）。</td></tr>
+          <tr><td class="pno">9</td><td class="prole">原因分析</td><td>「白市地区の課題構造図」（ヒアリング調査をもとに作成）。人口減少・空き家増加・担い手不足の因果ループ図。</td></tr>
+          <tr><td class="pno">10</td><td class="prole">理論的枠組み</td><td>「観光まちづくりの4類型」（学術論文引用）に白市を位置付け、他地域事例（尾道・竹原等）と比較参照。</td></tr>
+          <tr><td class="pno">11</td><td class="prole">解決策①</td><td>「ガクチカツアー」。「白市の課題」×「大学生のニーズ」のマトリクス発想。企画概要（定員30名、価格7,000円）。</td></tr>
+          <tr><td class="pno">12</td><td class="prole">解決策①</td><td>旅程（案）：広島駅発→町並み保全/茶摘み/古民家BBQ→保存会と交流→帰着。現地ヒアリング風景の写真。</td></tr>
+          <tr><td class="pno">13</td><td class="prole">解決策①</td><td>体験メニューごとに内容・顧客満足・地区メリットを整理。</td></tr>
+          <tr><td class="pno">14</td><td class="prole">解決策②</td><td>「ご褒美ツアー」。「白市の課題」×「マダム層のニーズ」のマトリクス。企画概要（定員30名、価格13,000円）。</td></tr>
+          <tr><td class="pno">15</td><td class="prole">解決策②</td><td>旅程（案）：美術館→昼食→町並み探訪→アフタヌーンティー→道の駅で土産購入。</td></tr>
+          <tr><td class="pno">16</td><td class="prole">解決策②</td><td>メニューごとに内容・顧客満足・経済効果を整理。</td></tr>
+          <tr><td class="pno">17</td><td class="prole">実施体制</td><td>関係者相関図：観光連盟・観光協会（催行）、町家保存会・紅茶工房（受入）、大学ゼミ（企画提案）の情報・送客フロー。</td></tr>
+          <tr><td class="pno">18</td><td class="prole">スケジュール</td><td>2025年11月〜2026年10月、既存の地域イベントに合わせた「試行→評価→修正→商品化」のプロセス図。</td></tr>
+          <tr><td class="pno">19</td><td class="prole">関係者の声</td><td>町家保存会、紅茶工房、観光連盟、観光協会、文化課の5者からのヒアリングコメントを吹き出し形式で掲載。</td></tr>
+          <tr><td class="pno">20</td><td class="prole">参考文献</td><td>調査協力者6団体（訪問日付明記）、学術文献を含む参考文献5件。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="deck-takeaway"><strong>構成の総括：</strong>広島県全体の観光データから「知名度の低さ（747位）」で対象を段階的に絞り込み、RESAS観光地分析（滞留人口マップ）で「白市だけ来訪者がいない」ことを定量的に裏付ける論理が明快。学術理論（観光まちづくり4類型）で立ち位置を正当化し、「ガクチカツアー」「ご褒美ツアー」を旅程表・体験メニュー表レベルまで作り込み、現地関係者の生の声で合意形成済みの実行可能性を印象付ける。</div>
+    </div>
+  </details>
+
+  <h2 class="section-title" id="checklist">2026年応募に向けたチェックリスト</h2>
+  <p class="section-lede">10作品の共通パターンから逆算した、自分のデッキで確認すべき項目。</p>
+  <ol class="checklist">
+    <li><strong>RESASは「全体を貫く分析ツール」ではなく「テーマ選定の一撃」として使う。</strong>人口マップ・観光マップ・産業構造マップ・地域経済循環マップのうち、自分のテーマに一番刺さるものを1〜3ページに絞り込み、序盤（デッキの最初の1/4以内）で「なぜこの地域・このテーマか」を数字で言い切る。</li>
+    <li><strong>RESASの後には必ず一次情報を積む。</strong>全受賞作が独自アンケート・ヒアリング・現地取材・実験のいずれかを行っている。公的統計だけで押し切った作品はゼロ。可能なら複数の調査手法（アンケート＋ヒアリングなど）を組み合わせる。</li>
+    <li><strong>できることは実際にやってから発表する。</strong>試作、施工、販売イベント、実験など、提案の一部でも実行して写真・数値・日付を見せられると説得力が跳ね上がる（特に高校生の部で顕著）。時間がなければ小規模な検証実験だけでも行う。</li>
+    <li><strong>似た成功事例を1〜2件、数値付きで引用する。</strong>他地域の先行事例（売上・雇用増などの実数値）を挟むと、審査員にとって「実現できそう」の心理的ハードルが下がる。</li>
+    <li><strong>収支・スケジュールは具体的な数字で。</strong>単年の概算より、複数年の売上・経費・利益推移や、初期投資と黒字化時期を明示した方が事業計画として信頼される。</li>
+    <li><strong>現地の人を巻き込み、その声を載せる。</strong>専門家・住民・行政・事業者への取材は8割の作品に見られる。ヒアリングで当初の仮説が崩れたら、それを隠さず「検証して方針転換した」プロセスごと見せる方が誠実に映る。</li>
+    <li><strong>最後は「うちの町だけの話」で終わらせない。</strong>まとめでは成果の総括に加えて、他地域・他分野への横展開可能性に触れて視座を上げる。</li>
+    <li><strong>ページ数は20〜28ページが相場。</strong>大臣賞・優秀賞の間でページ数に大きな差はない（平均23ページ）。情報量より、上記の要素がどれだけ埋まっているかで差がついている。</li>
+  </ol>
+
+  <footer>
+    分析対象：contest.resas-portal.go.jp/2025 最終審査会・審査結果ページ掲載のPDF資料（受賞10作品／全230ページ）を独自に精読して作成。
+  </footer>
+
+</div>
+
+</body>
+</html>
