@@ -233,6 +233,47 @@
   .compare-col .n { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); margin-bottom: 12px; }
   .compare-col ul { margin: 0; padding-left: 1.15em; font-size: 0.86rem; line-height: 1.8; }
 
+  /* Search & filter */
+  .filter-bar {
+    position: sticky; top: 0; z-index: 15;
+    background: var(--bg);
+    padding: 14px 0 16px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .search-row {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface); border: 2px solid var(--indigo); border-radius: 10px;
+    padding: 10px 14px; box-shadow: var(--shadow);
+  }
+  .search-row input {
+    flex: 1; min-width: 0; border: none; outline: none; font-size: 0.95rem; padding: 4px 2px;
+    font-family: inherit; background: transparent; color: var(--ink);
+  }
+  .search-row button#search-clear {
+    border: none; background: var(--surface-2); color: var(--muted); cursor: pointer;
+    border-radius: 999px; width: 26px; height: 26px; font-size: 0.85rem; line-height: 1; flex-shrink: 0;
+  }
+  .search-row button#search-clear:hover { background: var(--border); }
+  .search-count { color: var(--muted); font-size: 0.78rem; white-space: nowrap; flex-shrink: 0; }
+  .chip-rows { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 10px; }
+  .chip-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .chip-group-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-right: 2px; }
+  .filter-chip {
+    font-family: var(--font-body); font-size: 0.8rem; cursor: pointer;
+    border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+    border-radius: 999px; padding: 4px 12px;
+  }
+  .filter-chip:hover { border-color: var(--indigo); color: var(--ink); }
+  .filter-chip[aria-pressed="true"] {
+    background: var(--indigo); border-color: var(--indigo); color: var(--bg);
+    font-weight: 700;
+  }
+  .work-card.is-hidden, .year-title.is-hidden, .work-group-label.is-hidden { display: none !important; }
+  tr.row-hit td { background: var(--gold-tint); }
+  tr.row-hit td.prole { color: var(--gold); }
+  .no-results { text-align: center; color: var(--muted); padding: 48px 20px; font-size: 0.92rem; display: none; }
+
   /* Work cards */
   .work-group-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; margin: 28px 0 10px; }
   details.work-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; box-shadow: var(--shadow); overflow: hidden; }
@@ -476,7 +517,40 @@
   </div>
 
   <h2 class="section-title" id="works">作品別詳細（ページ単位の内容一覧）</h2>
-  <p class="section-lede">各作品のスライドを1ページずつ開いて記録した内容。年度→賞の順に並び、カードを開くと全ページの内訳が見られる。</p>
+  <p class="section-lede">各作品のスライドを1ページずつ開いて記録した内容。キーワード検索や絞り込みチップで、45作品・1,029ページの中から辞書的に引ける。</p>
+
+  <div class="filter-bar">
+    <div class="search-row">
+      <input type="text" id="keyword-search" placeholder="キーワードで検索（例：RESAS人口マップ、空き家、テキストマイニング、団体名など）" autocomplete="off">
+      <button id="search-clear" type="button" title="クリア">✕</button>
+      <span id="search-count" class="search-count">45件中 45件を表示</span>
+    </div>
+    <div class="chip-rows">
+      <div class="chip-group" data-filter-group="year">
+        <span class="chip-group-label">年度</span>
+        <button class="filter-chip" type="button" data-year="2025" aria-pressed="false">2025</button>
+        <button class="filter-chip" type="button" data-year="2024" aria-pressed="false">2024</button>
+        <button class="filter-chip" type="button" data-year="2023" aria-pressed="false">2023</button>
+        <button class="filter-chip" type="button" data-year="2022" aria-pressed="false">2022</button>
+        <button class="filter-chip" type="button" data-year="2021" aria-pressed="false">2021</button>
+      </div>
+      <div class="chip-group" data-filter-group="award">
+        <span class="chip-group-label">賞</span>
+        <button class="filter-chip" type="button" data-award="minister" aria-pressed="false">大臣賞</button>
+        <button class="filter-chip" type="button" data-award="excellence" aria-pressed="false">優秀賞</button>
+      </div>
+      <div class="chip-group" data-filter-group="division">
+        <span class="chip-group-label">部門</span>
+        <button class="filter-chip" type="button" data-division="student" aria-pressed="false">高校生系</button>
+        <button class="filter-chip" type="button" data-division="general" aria-pressed="false">一般系</button>
+        <button class="filter-chip" type="button" data-division="gov" aria-pressed="false">官民連携・地方公共団体系</button>
+      </div>
+    </div>
+  </div>
+
+  <p id="no-results" class="no-results">条件に一致する作品が見つかりません。キーワードや絞り込みを変えてみてください。</p>
+
+  <div id="works-list">
 
   <h3 class="year-title" id="y2025">2025年度<span class="year-stat">10作品・230ページ・2部門制</span></h3>
   <div class="work-group-label">地方創生担当大臣賞（4作品）</div>
@@ -2377,6 +2451,8 @@
     </div>
   </details>
 
+  </div><!-- /#works-list -->
+
   <h2 class="section-title" id="checklist">2026年応募に向けたチェックリスト</h2>
   <p class="section-lede">5年分・45作品の共通パターンから逆算した、自分のデッキで確認すべき項目。</p>
   <ol class="checklist">
@@ -2396,6 +2472,144 @@
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var list = document.getElementById('works-list');
+  if (!list) return;
+
+  var cards = Array.prototype.slice.call(list.querySelectorAll('.work-card'));
+  var totalCount = cards.length;
+
+  // Walk #works-list in document order to learn which year / award-group each card belongs to,
+  // and build a lookup from year-title / group-label elements to the cards under them.
+  var currentYear = '';
+  var currentAwardLabel = null; // the .work-group-label element currently in scope
+  var yearSections = []; // { el, groups: [{ el, cards: [] }] }
+  var currentYearSection = null;
+  var currentGroupSection = null;
+  var cardMeta = new Map();
+
+  function divisionBucket(text) {
+    text = text || '';
+    if (text.indexOf('高校生') !== -1) return 'student';
+    if (text.indexOf('官民連携') !== -1 || text.indexOf('地方公共団体') !== -1) return 'gov';
+    return 'general';
+  }
+
+  Array.prototype.forEach.call(list.children, function (el) {
+    if (el.classList && el.classList.contains('year-title')) {
+      currentYear = (el.textContent.match(/\d{4}/) || [''])[0];
+      currentYearSection = { el: el, groups: [] };
+      yearSections.push(currentYearSection);
+      currentGroupSection = null;
+    } else if (el.classList && el.classList.contains('work-group-label')) {
+      currentAwardLabel = el.textContent.indexOf('大臣') !== -1 ? 'minister' : 'excellence';
+      currentGroupSection = { el: el, cards: [] };
+      if (currentYearSection) currentYearSection.groups.push(currentGroupSection);
+    } else if (el.classList && el.classList.contains('work-card')) {
+      var divisionText = (el.querySelector('.division-tag') || {}).textContent || '';
+      var meta = { year: currentYear, award: currentAwardLabel, division: divisionBucket(divisionText) };
+      cardMeta.set(el, meta);
+      if (currentGroupSection) currentGroupSection.cards.push(el);
+    }
+  });
+
+  var searchInput = document.getElementById('keyword-search');
+  var clearBtn = document.getElementById('search-clear');
+  var countEl = document.getElementById('search-count');
+  var noResultsEl = document.getElementById('no-results');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.filter-chip'));
+
+  var activeYears = new Set();
+  var activeAwards = new Set();
+  var activeDivisions = new Set();
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var pressed = chip.getAttribute('aria-pressed') === 'true';
+      chip.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+      var set = chip.dataset.year ? activeYears : chip.dataset.award ? activeAwards : activeDivisions;
+      var val = chip.dataset.year || chip.dataset.award || chip.dataset.division;
+      if (pressed) { set.delete(val); } else { set.add(val); }
+      applyFilters();
+    });
+  });
+
+  function clearRowHighlights() {
+    Array.prototype.forEach.call(list.querySelectorAll('tr.row-hit'), function (tr) {
+      tr.classList.remove('row-hit');
+    });
+  }
+
+  function applyFilters() {
+    var query = (searchInput.value || '').trim().toLowerCase();
+    clearRowHighlights();
+    var visibleCount = 0;
+
+    cards.forEach(function (card) {
+      var meta = cardMeta.get(card);
+      var passYear = activeYears.size === 0 || activeYears.has(meta.year);
+      var passAward = activeAwards.size === 0 || activeAwards.has(meta.award);
+      var passDivision = activeDivisions.size === 0 || activeDivisions.has(meta.division);
+      var passText = true;
+
+      if (query) {
+        var haystack = card.textContent.toLowerCase();
+        passText = haystack.indexOf(query) !== -1;
+      }
+
+      var visible = passYear && passAward && passDivision && passText;
+      card.classList.toggle('is-hidden', !visible);
+
+      if (visible) {
+        visibleCount++;
+        if (query) {
+          card.open = true;
+          var rows = card.querySelectorAll('table.page-table tbody tr');
+          Array.prototype.forEach.call(rows, function (tr) {
+            if (tr.textContent.toLowerCase().indexOf(query) !== -1) {
+              tr.classList.add('row-hit');
+            }
+          });
+        } else {
+          card.open = false;
+        }
+      }
+    });
+
+    // Hide year headers / group labels whose entire section has no visible cards.
+    yearSections.forEach(function (yearSection) {
+      var yearHasVisible = false;
+      yearSection.groups.forEach(function (group) {
+        var groupHasVisible = group.cards.some(function (c) { return !c.classList.contains('is-hidden'); });
+        group.el.classList.toggle('is-hidden', !groupHasVisible);
+        if (groupHasVisible) yearHasVisible = true;
+      });
+      yearSection.el.classList.toggle('is-hidden', !yearHasVisible);
+    });
+
+    countEl.textContent = totalCount + '件中 ' + visibleCount + '件を表示';
+    noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  clearBtn.addEventListener('click', function () {
+    searchInput.value = '';
+    searchInput.focus();
+    applyFilters();
+  });
+
+  // Keep the filter bar stuck just below the sticky top nav, whatever its rendered height is.
+  function positionFilterBar() {
+    var nav = document.querySelector('nav.jumpbar');
+    var bar = document.querySelector('.filter-bar');
+    if (nav && bar) bar.style.top = nav.offsetHeight + 'px';
+  }
+  positionFilterBar();
+  window.addEventListener('resize', positionFilterBar);
+})();
+</script>
 
 </body>
 </html>
